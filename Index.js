@@ -4,6 +4,7 @@ const express=require('express');
 const app=express();
 const cors=require('cors');
 
+const port=process.env.PORT
 //cros=Cross origin Resource Sharing
  app.use(cors())
  app.use(express.json())
@@ -13,7 +14,7 @@ const cors=require('cors');
 const connectToMongo = require("./db")
 connectToMongo();
 //4
-const PORTNO=7000;
+const PORTNO=process.env.PORT;
 app.listen(PORTNO,()=>{
     console.log("server is running on portnumber"+PORTNO)
 });

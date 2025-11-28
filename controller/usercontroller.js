@@ -2,7 +2,8 @@ const bcryptjs=require('bcryptjs')
 
 const userschema=require('../Models/usermodel')
 const jwt=require('jsonwebtoken')// to verify or generate  token
-const SECRET_KEY="mernstack"
+require('dotenv').config()
+const SECRETE=process.env.SECRET_KEY
 
 const Adduser=async(req,res)=>{
     try {
@@ -80,7 +81,7 @@ const Login=async(req,res)=>{
   if(!matcheduser){
     res.json({success:false,message:"invalid user"})
   }else{
-    const Token=await jwt.sign({id:matcheduser.id},SECRET_KEY)
+    const Token=await jwt.sign({id:matcheduser.id},SECRETE)
     console.log(Token)
     res.json({success:true,message:"Login successfully",Token})
   }

@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 
-const mongoURL="mongodb://localhost:27017/crud"
+const mongoURL=process.env.MONGO_URI
 
 require('dotenv').config()
 

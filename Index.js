@@ -1,10 +1,11 @@
 //1
 const express=require('express');
+require('dotenv').config()
 //2
 const app=express();
 const cors=require('cors');
 
-const port=process.env.PORT
+
 //cros=Cross origin Resource Sharing
  app.use(cors())
  app.use(express.json())
